@@ -22,11 +22,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: npm ci
-      - run: npm run build
+          cache: "npm"
+          cache-dependency-path: react-starter/package-lock.json
+      - name: Install
+        working-directory: react-starter
+        run: npm ci
+      - name: Build
+        working-directory: react-starter
+        run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: react-starter/dist
 
   deploy:
     needs: build
