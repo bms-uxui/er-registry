@@ -1,15 +1,35 @@
 import ctScanSvg from "../../assets/ct-scan.svg";
+import needleSvg from "../../assets/needle.svg";
+import consultSvg from "../../assets/consult.svg";
+import firstBloodSvg from "../../assets/first-blood.svg";
+import ekgSvg from "../../assets/ekg.svg";
+import dxSvg from "../../assets/dx.svg";
+import antibioticSvg from "../../assets/antibiotic.svg";
 import { INK, MUTED, GLASS_CARD, GLASS_SUBCARD } from "../tokens";
 import { STATUS_META, statusOf } from "../data";
 import type { Category, KPI } from "../types";
 import { FyiButton } from "./FyiButton";
 import { SegmentDial } from "./SegmentDial";
 
-function CtScannerIllustration() {
+function KpiIllustration({ kpi }: { kpi: KPI }) {
+  const title = kpi.title.toLowerCase();
+  const { src, alt } = title.includes("needle")
+    ? { src: needleSvg, alt: "Needle" }
+    : title.includes("consult")
+    ? { src: consultSvg, alt: "Consult" }
+    : title.includes("blood")
+    ? { src: firstBloodSvg, alt: "Blood transfusion" }
+    : title.includes("ekg") || title.includes("ecg")
+    ? { src: ekgSvg, alt: "EKG" }
+    : title.includes("dx")
+    ? { src: dxSvg, alt: "Diagnosis" }
+    : title.includes("antibiotic") || title.includes("abx") || title.includes("abo")
+    ? { src: antibioticSvg, alt: "Antibiotic" }
+    : { src: ctScanSvg, alt: "CT scanner" };
   return (
     <img
-      src={ctScanSvg}
-      alt="CT scanner"
+      src={src}
+      alt={alt}
       className="w-40 h-36 object-contain select-none pointer-events-none"
       draggable={false}
     />
@@ -48,7 +68,7 @@ function KpiSubCard({ kpi }: { kpi: KPI }) {
         className="absolute pointer-events-none z-0"
         style={{ top: -18, right: -22, opacity: 0.5 }}
       >
-        <CtScannerIllustration />
+        <KpiIllustration kpi={kpi} />
       </div>
 
       {/* Floating status pill — top-right corner, solid 3D */}
