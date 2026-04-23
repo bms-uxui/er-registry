@@ -16,7 +16,7 @@ export function SegmentDial({
   const [animPercent, setAnimPercent] = useState(0);
 
   useEffect(() => {
-    const duration = 1100;
+    const duration = 2800;
     const startTime = performance.now();
     let raf = 0;
     const tick = (now: number) => {

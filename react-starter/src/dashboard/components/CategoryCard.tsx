@@ -22,7 +22,7 @@ function KpiSubCard({ kpi }: { kpi: KPI }) {
   const StatusIcon = meta.Icon;
   return (
     <div
-      className="rounded-2xl p-4 flex flex-col gap-3.5 relative overflow-hidden"
+      className="kpi-card rounded-2xl p-4 flex flex-col gap-3.5 relative overflow-hidden cursor-default will-change-transform"
       style={GLASS_SUBCARD}
     >
       {/* top sheen */}

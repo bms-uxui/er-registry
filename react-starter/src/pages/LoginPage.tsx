@@ -182,7 +182,7 @@ export default function LoginPage() {
 
                 <button
                   type="button"
-                  onClick={() => navigate("/er-registry-dashboard")}
+                  onClick={() => navigate("/dashboard")}
                   className="group w-full rounded-full px-5 py-3.5 flex items-center justify-center cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#F5FBF6] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#15803D]/30"
                   style={{
                     background:
